@@ -60,7 +60,7 @@ void Outake_Bong_Trang()
     // ngưng không hoạt đông
   }//-Nếu nhấn nút circle 1 lần thì mortor sẽ quay và nếu nhấn lại lần nữa thì motor sẽ dừng
   unsigned long dem =0;
-  dem=millis();
+  dem=0;
   while(r1==true)
   {
     pwm.setPWM(6, 0, 205);
@@ -123,6 +123,7 @@ void Color_Sensor() // tự động phân loại
   if ((c > 2000) && (r > 1000)) // nếu cảm biến màu thấy màu đen
   {
     if ( (unsigned long) (millis() - time1) > 300 ) // xoay servo trong 300ms
+    {
       time1=millis();
       pwm.setPWM(5, 0, 410); //servo quay lên 90 độ
     }
@@ -132,6 +133,7 @@ void Color_Sensor() // tự động phân loại
   else if ((c > 2000) && (r < 1000)) // cảm biến màu sắc thấy màu trắng
   {
     if ( (unsigned long) (millis() - time1) > 300 )// xoay servo trong 300ms
+    {
       time1=millis();
       pwm.setPWM(5, 0, 205);// servo quay xuống 90 độ
     }
